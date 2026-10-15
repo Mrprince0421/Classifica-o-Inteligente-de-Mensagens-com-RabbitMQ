@@ -35,7 +35,10 @@ O sistema emprega lógica de processamento inteligente em dois fluxos distintos 
   - **Funcionamento:** O motor de IA lê o enunciado do problema reportado pelo utilizador e atribui uma categoria operacional específica (ex: *Problema de conexão*, *Problema de acesso*, *Problema de desempenho*, etc.), agilizando o direcionamento interno para as equipas responsáveis.
 
 ---
+## 🎥 Vídeo de Apresentação
 
+Pode assistir à demonstração completa da aplicação no link abaixo:
+👉 [Assistir ao Vídeo de Apresentação do Projeto](https://youtu.be/XMHVjl3CrCM)
 ##  Instruções de Execução
 
 Certifique-se de que tem o **Docker** e o **Docker Compose** instalados e em execução no seu computador.
