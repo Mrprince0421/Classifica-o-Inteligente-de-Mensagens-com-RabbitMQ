@@ -1,0 +1,45 @@
+version: '3.8'
+
+networks:
+  messaging_network:
+    driver: bridge
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: container_rabbitmq
+    ports:
+      - "5672:5672"   # Porta AMQP
+      - "15672:15672" # Interface Web de Gestão
+    networks:
+      - messaging_network
+
+  generator:
+    build: ./generator
+    container_name: container_generator
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - rabbitmq
+    networks:
+      - messaging_network
+
+  consumer_reviews:
+    build: ./consumer-reviews
+    container_name: container_consumer_reviews
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - rabbitmq
+    networks:
+      - messaging_network
+
+  consumer_support:
+    build: ./consumer-support
+    container_name: container_consumer_support
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - rabbitmq
+    networks:
+      - messaging_network
